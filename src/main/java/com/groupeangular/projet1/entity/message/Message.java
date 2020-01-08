@@ -4,36 +4,46 @@ import java.time.ZonedDateTime;
 
 public class Message {
 
-	private String emitter;
-	private String topic;
+	private Long emitterId;
+	
+	private Long receiverId;
+	
 	private String payload;
+	
 	private ZonedDateTime date;
 	
-	
-	public Message(String emitter, String topic, String payload) {
-		this.emitter = emitter;
-		this.topic = topic;
-		this.payload = payload;
-		this.date = ZonedDateTime.now();
+	public Long getEmitterId() {
+		return emitterId;
 	}
 
-
-	public String getEmitter() {
-		return emitter;
+	public void setEmitterId(Long emitterId) {
+		this.emitterId = emitterId;
 	}
 
-	public String getTopic() {
-		return topic;
+	public Long getReceiverId() {
+		return receiverId;
+	}
+
+	public void setReceiverId(Long receiverId) {
+		this.receiverId = receiverId;
 	}
 
 	public String getPayload() {
 		return payload;
 	}
-	
+
+	public void setPayload(String payload) {
+		this.payload = payload;
+	}
+
 	public ZonedDateTime getDate() {
 		return date;
 	}
-	
+
+	public void setDate(ZonedDateTime date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -41,11 +51,11 @@ public class Message {
 		builder.append("{");
 		
 		builder.append("\"emitter\":\"");
-		builder.append(this.emitter);
+		builder.append(this.emitterId);
 		builder.append("\", ");
 
-		builder.append("\"topic\":\"");
-		builder.append(this.topic);
+		builder.append("\"receiver\":\"");
+		builder.append(this.receiverId);
 		builder.append("\", ");
 
 		builder.append("\"payload\":\"");

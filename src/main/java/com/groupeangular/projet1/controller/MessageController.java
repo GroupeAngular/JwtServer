@@ -29,11 +29,9 @@ public class MessageController {
 
 	
 	@PostMapping
-	public ResponseEntity<Void> addMessage(@RequestBody Message message) {
-		logger.info("New message recieved : {}", message);
-		
-		this.messageService.addMessage(message);
-		
+	public ResponseEntity<Void> sendMessage(@RequestBody Message message) {
+		logger.info("New message received : {}", message);
+		this.messageService.sendMessage(message);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
